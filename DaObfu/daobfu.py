@@ -32,7 +32,6 @@ def obfuscate_script(path, obfuscate_vars, remove_comments, remove_whitespace, e
                 script_content = re.sub(re.escape(var) + r'\b', new_name, script_content)
 
     if encode_base64:
-        # Encode the content as Base64 and wrap it in a PowerShell script block
         encoded_content = base64.b64encode(script_content.encode('utf-8')).decode('utf-8')
         script_content = f"IEX ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{encoded_content}')))"
 
