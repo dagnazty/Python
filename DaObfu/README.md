@@ -14,8 +14,9 @@ GUI Interface: Easy-to-use graphical interface with script browsing and real-tim
 >Tkinter (usually comes pre-installed with Python)
 >PIL (Python Imaging Library)
 >You can install PIL using pip:
-    pip install pillow
 
+    pip install pillow
+    
 ## Usage
 Launch the Script: Run the script using Python to open the GUI.
 Load a PowerShell Script: Click on 'Browse...' to select a PowerShell script file.
