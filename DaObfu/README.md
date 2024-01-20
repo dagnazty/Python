@@ -15,8 +15,8 @@ GUI Interface: Easy-to-use graphical interface with script browsing and real-tim
 >PIL (Python Imaging Library)
 >You can install PIL using pip:
 
-### Example
-  -pip install pillow
+## EXAMPLE
+    pip install pillow
 
 ## Usage
 Launch the Script: Run the script using Python to open the GUI.
