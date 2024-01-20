@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
+from PIL import Image, ImageTk
 import re
 import random
 import string
@@ -57,8 +58,26 @@ def obfuscate_button_click():
     result = obfuscate_script(input_path, obfuscate_vars, remove_comments, remove_whitespace, encode_base64)
     result_label.config(text=result)
 
+def load_local_image(image_path, max_size=(300, 300)):
+    if not os.path.exists(image_path):
+        return None
+
+    try:
+        img = Image.open(image_path)
+        img.thumbnail(max_size, Image.LANCZOS)
+        return ImageTk.PhotoImage(img)
+    except Exception as e:
+        print(f"Error loading image: {e}")
+        return None
+
 root = tk.Tk()
 root.title("dag's Obfuscator")
+
+image_path = "DaObfu.jpg" 
+photo = load_local_image(image_path)
+if photo:
+    image_label = tk.Label(root, image=photo)
+    image_label.pack()
 
 tk.Label(root, text="Input Script:").pack()
 input_entry = tk.Entry(root, width=50)
