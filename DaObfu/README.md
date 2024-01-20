@@ -14,8 +14,6 @@ GUI Interface: Easy-to-use graphical interface with script browsing and real-tim
 >Tkinter (usually comes pre-installed with Python)
 >PIL (Python Imaging Library)
 >You can install PIL using pip:
-
-## EXAMPLE
     pip install pillow
 
 ## Usage
