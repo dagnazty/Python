@@ -291,10 +291,11 @@ jobs:
       - name: Check if Notification Should Be Sent
         id: decide_notification
         run: |
-          if grep -q "SEND_NOTIFICATION=true" fetch_metrics.out; then
+            if grep -q "SEND_NOTIFICATION=true" fetch_metrics.out; then
             echo "send=true" >> $GITHUB_OUTPUT
-          else
+            else
             echo "send=false" >> $GITHUB_OUTPUT
+            fi
         shell: bash
 
       # Step 7: Send Discord Notification using curl
