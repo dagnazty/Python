@@ -45,6 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}               # Built-in secret provided by GitHub Actions
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }} # Your Discord webhook URL
           GITHUB_EVENT_NAME: ${{ github.event_name }}             # To determine if run is manual or scheduled
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }} # Dynamic repository owner
         run: |
           python3 - <<'EOF' > fetch_metrics.out
           import os
@@ -53,8 +54,8 @@ jobs:
           from datetime import datetime
 
           # Configuration
-          REPO_OWNER = "dagnazty"       # Replace with your GitHub username
-          REPO_NAME = "Python"         # Replace with your repository name
+          REPO_OWNER = os.getenv('GITHUB_REPOSITORY_OWNER')
+          REPO_NAME = os.getenv('GITHUB_REPOSITORY').split('/')[-1]
           METRICS_FILE = ".github/metrics.json"
 
           # Ensure .github directory exists
